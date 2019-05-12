@@ -1,7 +1,9 @@
 package com.wueiz.tdd.core;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import com.google.inject.AbstractModule;
+import com.google.inject.Guice;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.inject.Inject;
 
@@ -12,9 +14,14 @@ public class FizzBuzzTest {
     @Inject
     private FizzBuzz fizzBuzz;
 
-    @BeforeAll
-    private void setUp() {
-
+    @Before
+    public void setUp() {
+        Guice.createInjector(new AbstractModule() {
+            @Override
+            protected void configure() {
+                bind(FizzBuzz.class).toInstance(new FizzBuzz());
+            }
+        }).injectMembers(this);
     }
 
     @Test

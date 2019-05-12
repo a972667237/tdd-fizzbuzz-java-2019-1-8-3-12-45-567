@@ -1,4 +1,4 @@
-package com.wueiz.tdd;
+package com.wueiz.tdd.core;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

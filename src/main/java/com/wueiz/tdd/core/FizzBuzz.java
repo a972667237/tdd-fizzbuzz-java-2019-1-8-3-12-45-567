@@ -1,4 +1,4 @@
-package com.wueiz.tdd;
+package com.wueiz.tdd.core;
 
 public class FizzBuzz {
 

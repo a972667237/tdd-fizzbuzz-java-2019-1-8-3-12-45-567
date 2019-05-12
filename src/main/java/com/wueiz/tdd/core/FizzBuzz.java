@@ -4,7 +4,7 @@ import javax.inject.Inject;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FizzBuzz {
+public class FizzBuzz implements Game{
     @Inject
     public FizzBuzz() {}
 

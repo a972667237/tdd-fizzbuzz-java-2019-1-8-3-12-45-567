@@ -2,8 +2,8 @@ package com.wueiz.tdd.controllers;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.inject.Inject;
 
@@ -13,7 +13,7 @@ public class GameControllersTest {
     @Inject
     private GameController gameController;
 
-    @BeforeAll
+    @Before
     public void setUp() {
         Guice.createInjector(new AbstractModule() {
             @Override
@@ -24,9 +24,9 @@ public class GameControllersTest {
     }
 
     @Test
-    public void TestGameLoop() {
-        gameController.loop();
-        verify(gameController, times(gameController.LoopTime)).dispatch();
+    public void TestGameRun() {
+        gameController.run();
+        verify(gameController, times(gameController.LoopTime)).dispatch(any(Integer.class));
     }
 
 }

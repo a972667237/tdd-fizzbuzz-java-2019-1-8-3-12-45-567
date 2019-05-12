@@ -7,7 +7,12 @@ import org.junit.Test;
 
 import javax.inject.Inject;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class FizzBuzzTest {
@@ -28,12 +33,34 @@ public class FizzBuzzTest {
     public void TestJudge() {
         // Judge should return a int, mean that match 3, 5 and 7, if match 3, 5 ,return 4, define as OneTwo
         int oneTwoValue = 15;
-        int oneThreeValue = 42;
+        int oneThreeValue = 21;
         int oneTwoThreeValue = 105;
         int noneValue = 1;
-        assertEquals(fizzBuzz.Judge(oneTwoValue), fizzBuzz.OneTwo);
-        assertEquals(fizzBuzz.Judge(oneThreeValue), fizzBuzz.OneThree);
-        assertEquals(fizzBuzz.Judge(oneTwoThreeValue), fizzBuzz.OneTwoThree);
-        assertEquals(fizzBuzz.Judge(noneValue), fizzBuzz.None);
+
+        Set<Integer> oneTwoSet = fizzBuzz.Judge(oneTwoValue);
+        Set<Integer> oneThreeSet = fizzBuzz.Judge(oneThreeValue);
+        Set<Integer> oneTwoThreeSet = fizzBuzz.Judge(oneTwoThreeValue);
+        Set<Integer> noneSet = fizzBuzz.Judge(noneValue);
+
+        // test one two
+        assertAll("Test is one two return",
+                () -> assertTrue(oneTwoSet.contains(0)),
+                () -> assertTrue(oneTwoSet.contains(1)),
+                () -> assertTrue(oneTwoSet.size() == 2));
+        // one three
+        assertAll("Test is one three return",
+                () -> assertTrue(oneThreeSet.contains(0)),
+                () -> assertTrue(oneThreeSet.contains(2)),
+                () -> assertTrue(oneThreeSet.size() == 2));
+
+        // one two three
+        assertAll("Test is one two three return",
+                () -> assertTrue(oneTwoThreeSet.contains(0)),
+                () -> assertTrue(oneTwoThreeSet.contains(1)),
+                () -> assertTrue(oneTwoThreeSet.contains(2)),
+                () -> assertTrue(oneTwoThreeSet.size() == 3));
+
+        // none
+        assertTrue(noneSet.size() == 0);
     }
 }

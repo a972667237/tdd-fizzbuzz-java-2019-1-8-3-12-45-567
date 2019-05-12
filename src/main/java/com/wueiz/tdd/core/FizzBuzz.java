@@ -1,6 +1,7 @@
 package com.wueiz.tdd.core;
 
 import javax.inject.Inject;
+import java.util.Set;
 
 public class FizzBuzz {
 
@@ -28,7 +29,7 @@ public class FizzBuzz {
         return num % 7 == 0;
     }
 
-    public int Judge(int num) {
+    public Set<Integer> Judge(int num) {
         boolean canModByThree = canModByThree(num);
         boolean canModByFive = canModByFive(num);
         boolean canModBySeven = canModBySeven(num);

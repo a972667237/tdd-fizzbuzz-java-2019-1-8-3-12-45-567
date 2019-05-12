@@ -26,6 +26,7 @@ public class GameControllersTest {
     @Test
     public void TestGameLoop() {
         gameController.loop();
-        verify(gameController, times(gameController.LoopTime)).loop();
+        verify(gameController, times(gameController.LoopTime)).dispatch();
     }
+
 }

@@ -5,4 +5,7 @@ public class GameController {
 
     public void loop() {
     }
+
+    public void dispatch() {
+    }
 }
